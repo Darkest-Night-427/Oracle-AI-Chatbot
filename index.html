@@ -1,0 +1,292 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0810">
+
+  <title>Oracle — Beyond the Question</title>
+
+  <meta name="description" content="Oracle — A personal AI assistant built for discovery, creativity, reasoning, and exploration.">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="app" id="app">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+
+      <div class="sidebar-header">
+        <a class="brand" href="#" aria-label="Oracle home">
+          <span class="brand-icon">◉</span>
+          <span class="brand-name">ORACLE</span>
+        </a>
+
+        <button
+          class="icon-button sidebar-toggle"
+          id="sidebarToggle"
+          aria-label="Toggle sidebar"
+          title="Toggle sidebar"
+        >
+          ☰
+        </button>
+      </div>
+
+      <button class="new-chat-button" id="newChatButton">
+        <span>＋</span>
+        <span>New conversation</span>
+      </button>
+
+      <div class="sidebar-section">
+        <span class="section-label">WORKSPACE</span>
+
+        <button class="nav-item active" id="homeButton">
+          <span class="nav-icon">⌂</span>
+          <span>Home</span>
+        </button>
+
+        <button class="nav-item" id="historyButton">
+          <span class="nav-icon">◷</span>
+          <span>History</span>
+        </button>
+      </div>
+
+      <div class="conversation-history" id="conversationHistory">
+        <span class="section-label">RECENT</span>
+
+        <div class="history-list" id="historyList">
+          <!-- Conversation history will be generated here -->
+        </div>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="profile">
+          <div class="profile-avatar">O</div>
+
+          <div class="profile-info">
+            <span class="profile-name">Oracle</span>
+            <span class="profile-status">Personal AI</span>
+          </div>
+
+          <button
+            class="icon-button settings-button"
+            id="settingsButton"
+            aria-label="Settings"
+            title="Settings"
+          >
+            ⚙
+          </button>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- Main workspace -->
+    <main class="main-panel">
+
+      <!-- Top bar -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <button
+            class="icon-button mobile-menu-button"
+            id="mobileMenuButton"
+            aria-label="Open sidebar"
+          >
+            ☰
+          </button>
+
+          <span class="workspace-title">Oracle</span>
+
+          <span class="version-label">PREVIEW</span>
+        </div>
+
+        <div class="topbar-right">
+          <div class="status-indicator" id="statusIndicator">
+            <span class="status-dot"></span>
+            <span id="statusText">Awaiting awakening</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Chat area -->
+      <section class="chat-area" id="chatArea">
+
+        <!-- Welcome screen -->
+        <div class="welcome-screen" id="welcomeScreen">
+
+          <div class="oracle-symbol">
+            <div class="symbol-ring ring-outer"></div>
+            <div class="symbol-ring ring-inner"></div>
+            <div class="symbol-core">✦</div>
+          </div>
+
+          <div class="welcome-heading">
+            <span class="eyebrow">INTELLIGENCE · INSIGHT · DISCOVERY</span>
+
+            <h1>Beyond the question<br>lies the answer.</h1>
+
+            <p class="welcome-description">
+              I am Oracle. What shall we uncover?
+            </p>
+          </div>
+
+          <!-- Suggested prompts -->
+          <div class="suggestion-grid" id="suggestionGrid">
+
+            <button class="suggestion-card" data-prompt="Help me explore an interesting topic I've never thought about.">
+              <span class="suggestion-icon">✧</span>
+              <span class="suggestion-title">Explore the unknown</span>
+              <span class="suggestion-description">Discover something fascinating</span>
+            </button>
+
+            <button class="suggestion-card" data-prompt="Help me brainstorm creative project ideas.">
+              <span class="suggestion-icon">⌘</span>
+              <span class="suggestion-title">Create something</span>
+              <span class="suggestion-description">Turn an idea into reality</span>
+            </button>
+
+            <button class="suggestion-card" data-prompt="Teach me something interesting in a way I'll actually remember.">
+              <span class="suggestion-icon">⌖</span>
+              <span class="suggestion-title">Learn something</span>
+              <span class="suggestion-description">Knowledge worth keeping</span>
+            </button>
+
+            <button class="suggestion-card" data-prompt="Let's have an interesting conversation. Pick a topic.">
+              <span class="suggestion-icon">☽</span>
+              <span class="suggestion-title">Just talk</span>
+              <span class="suggestion-description">No plan necessary</span>
+            </button>
+
+          </div>
+        </div>
+
+        <!-- Messages -->
+        <div class="messages-container" id="messagesContainer" hidden>
+          <div class="messages-list" id="messagesList">
+            <!-- Messages will be generated here -->
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Composer -->
+      <footer class="composer-area">
+
+        <form class="composer" id="chatForm">
+
+          <textarea
+            id="messageInput"
+            name="message"
+            placeholder="Ask Oracle anything..."
+            rows="1"
+            aria-label="Message Oracle"
+          ></textarea>
+
+          <div class="composer-toolbar">
+
+            <div class="composer-tools">
+              <button
+                type="button"
+                class="tool-button"
+                id="attachButton"
+                title="Attachments (coming later)"
+                aria-label="Attachments"
+              >
+                ＋
+              </button>
+
+              <span class="tool-divider"></span>
+
+              <span class="composer-mode">
+                <span class="mode-icon">✦</span>
+                <span>Oracle</span>
+              </span>
+            </div>
+
+            <button
+              type="submit"
+              class="send-button"
+              id="sendButton"
+              aria-label="Send message"
+              disabled
+            >
+              ↑
+            </button>
+
+          </div>
+        </form>
+
+        <p class="disclaimer" id="disclaimer">
+          Oracle is evolving. Verify important information independently.
+        </p>
+
+      </footer>
+
+    </main>
+
+  </div>
+
+  <!-- Settings modal -->
+  <div class="modal-overlay" id="settingsModal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+
+      <div class="modal-header">
+        <h2 id="settingsTitle">Settings</h2>
+
+        <button class="icon-button" id="closeSettingsButton" aria-label="Close settings">
+          ×
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="settings-section">
+          <span class="section-label">ABOUT</span>
+
+          <div class="settings-row">
+            <div>
+              <span class="settings-name">Oracle</span>
+              <span class="settings-description">Personal AI assistant</span>
+            </div>
+
+            <span class="version-label">v0.1.0</span>
+          </div>
+        </div>
+
+        <div class="settings-section">
+          <span class="section-label">APPEARANCE</span>
+
+          <div class="settings-row">
+            <div>
+              <span class="settings-name">Dark mode</span>
+              <span class="settings-description">Oracle's native appearance</span>
+            </div>
+
+            <span class="settings-value">Always on</span>
+          </div>
+        </div>
+
+        <div class="settings-section">
+          <span class="section-label">INTELLIGENCE</span>
+
+          <div class="settings-row">
+            <div>
+              <span class="settings-name">AI engine</span>
+              <span class="settings-description">Not connected yet</span>
+            </div>
+
+            <span class="settings-value">Offline</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+
+</body>
+</html>
